@@ -107,4 +107,9 @@ describe('HelloVue.vue', () => {
       expect(wrapper.vm.inputValue).toBe('');
     });
   });
+
+  describe('snapshot', () => {
+    const wrapper = shallowMount(HelloVue);
+    expect(wrapper.html()).toMatchSnapshot();
+  });
 });
