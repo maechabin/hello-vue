@@ -63,6 +63,15 @@ describe('HelloVue.vue', () => {
     });
   });
 
+  describe('mounted', () => {
+    it('console.log', done => {
+      const spy = jest.spyOn(console, 'log');
+      shallowMount(HelloVue);
+      expect(spy).toHaveBeenCalled();
+      done();
+    });
+  });
+
   describe('computed: isDisabled', () => {
     let wrapper;
 
