@@ -16,6 +16,9 @@ export default {
       inputValue: '',
     };
   },
+  mounted() {
+    console.log('mounted');
+  },
   computed: {
     isDisabled() {
       return this.inputValue === '';
