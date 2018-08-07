@@ -54,7 +54,7 @@ describe('HelloVue.vue', () => {
     });
 
     it('should not call handleClick', () => {
-      const wrapper = shallowMount(HelloVue);
+      wrapper = shallowMount(HelloVue);
       const spy = jest.spyOn(wrapper.vm, 'handleClick');
       wrapper.setData({ inputValue: '' });
       wrapper.find('button').trigger('click');
