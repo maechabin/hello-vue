@@ -2,9 +2,11 @@ import { shallowMount } from '@vue/test-utils';
 import HelloVue from '@/components/HelloVue.vue';
 
 describe('HelloVue.vue', () => {
+  let wrapper;
+
   it('props', () => {
     const val = 'Vue';
-    const wrapper = shallowMount(HelloVue, {
+    wrapper = shallowMount(HelloVue, {
       propsData: { val },
     });
 
@@ -13,7 +15,7 @@ describe('HelloVue.vue', () => {
   });
 
   it('dom', () => {
-    const wrapper = shallowMount(HelloVue);
+    wrapper = shallowMount(HelloVue);
 
     expect(wrapper.contains('h1')).toBeTruthy();
     expect(wrapper.contains('input')).toBeTruthy();
@@ -21,20 +23,18 @@ describe('HelloVue.vue', () => {
   });
 
   it('input: v-bind:value', () => {
-    const wrapper = shallowMount(HelloVue);
+    wrapper = shallowMount(HelloVue);
     wrapper.setData({ inputValue: 'AAA' });
     expect(wrapper.find('input').element.value).toBe('AAA');
   });
 
   it('button: v-bind:disabled', () => {
-    const wrapper = shallowMount(HelloVue);
+    wrapper = shallowMount(HelloVue);
     wrapper.setData({ inputValue: '' });
     expect(wrapper.find('button').element.disabled).toBeTruthy();
   });
 
   describe('event', () => {
-    let wrapper;
-
     beforeEach(() => {
       wrapper = shallowMount(HelloVue);
     });
@@ -72,8 +72,6 @@ describe('HelloVue.vue', () => {
   });
 
   describe('computed: isDisabled', () => {
-    let wrapper;
-
     beforeEach(() => {
       wrapper = shallowMount(HelloVue);
     });
@@ -94,8 +92,6 @@ describe('HelloVue.vue', () => {
   });
 
   describe('method', () => {
-    let wrapper;
-
     beforeEach(() => {
       wrapper = shallowMount(HelloVue);
     });
@@ -121,7 +117,7 @@ describe('HelloVue.vue', () => {
 
   describe('snapshot', () => {
     it('HelloVue', () => {
-      const wrapper = shallowMount(HelloVue);
+      wrapper = shallowMount(HelloVue);
       expect(wrapper.html()).toMatchSnapshot();
     });
   });
