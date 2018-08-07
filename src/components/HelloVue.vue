@@ -34,6 +34,7 @@ export default {
       }
       this.value = this.inputValue;
       this.inputValue = '';
+      this.$emit('handle-click', this.value);
     },
   },
 };
