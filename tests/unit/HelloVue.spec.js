@@ -64,11 +64,10 @@ describe('HelloVue.vue', () => {
   });
 
   describe('mounted', () => {
-    it('console.log', done => {
+    it('console.log', () => {
       const spy = jest.spyOn(console, 'log');
       shallowMount(HelloVue);
       expect(spy).toHaveBeenCalled();
-      done();
     });
   });
 
@@ -111,9 +110,12 @@ describe('HelloVue.vue', () => {
 
     it('handleClick', () => {
       wrapper.setData({ inputValue: 'AAA' });
+      const spy = jest.spyOn(wrapper.vm, '$emit');
       wrapper.vm.handleClick();
+
       expect(wrapper.vm.value).toBe('AAA');
       expect(wrapper.vm.inputValue).toBe('');
+      expect(spy).toHaveBeenCalledWith('handle-click', 'AAA');
     });
   });
 

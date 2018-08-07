@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <hello-vue val="Vue"/>
+    <hello-vue val="Vue" v-on:handle-click="handleClickButton($event)" />
   </div>
 </template>
 
@@ -12,6 +12,11 @@ export default {
   name: 'app',
   components: {
     HelloVue,
+  },
+  methods: {
+    handleClickButton($event) {
+      console.log($event);
+    },
   },
 };
 </script>
