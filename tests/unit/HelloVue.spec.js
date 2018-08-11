@@ -115,6 +115,20 @@ describe('HelloVue.vue', () => {
     });
   });
 
+  describe('watch', () => {
+    beforeEach(() => {
+      wrapper = shallowMount(HelloVue);
+      wrapper.setData({ value: 'AAA' });
+    });
+
+    it('should call value()', () => {
+      const spy = jest.spyOn(console, 'log');
+      wrapper.setData({ value: 'BBB' });
+
+      expect(spy).toHaveBeenCalledWith('watch: BBB, AAA');
+    });
+  });
+
   describe('snapshot', () => {
     it('HelloVue', () => {
       wrapper = shallowMount(HelloVue);

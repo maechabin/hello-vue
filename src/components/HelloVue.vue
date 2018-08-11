@@ -37,6 +37,11 @@ export default {
       this.$emit('handle-click', this.value);
     },
   },
+  watch: {
+    value(newValue, oldValue) {
+      console.log(`watch: ${newValue}, ${oldValue}`);
+    },
+  },
 };
 </script>
 
