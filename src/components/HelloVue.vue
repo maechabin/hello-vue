@@ -66,8 +66,8 @@ export default {
     convertUpperCase(value) {
       if (!value) return;
       return value.toUpperCase();
-    }
-  }
+    },
+  },
 };
 </script>
 
