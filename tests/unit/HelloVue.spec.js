@@ -11,7 +11,7 @@ describe('HelloVue.vue', () => {
     });
 
     expect(wrapper.props().val).toBe(val);
-    expect(wrapper.text()).toMatch(`Hello ${val}`);
+    expect(wrapper.text()).toMatch(`Hello VUE`);
   });
 
   it('dom', () => {
@@ -126,6 +126,15 @@ describe('HelloVue.vue', () => {
       wrapper.setData({ value: 'BBB' });
 
       expect(spy).toHaveBeenCalledWith('watch: BBB, AAA');
+    });
+  });
+
+  describe('filter', () => {
+    it('convertUpperCase', () => {
+      wrapper = shallowMount(HelloVue);
+      wrapper.setData({ value: 'AAA' });
+      const received = wrapper.find('h1').text();
+      expect(received).toBe('Hello AAA');
     });
   });
 

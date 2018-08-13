@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Hello {{ value }}</h1>
+    <h1>Hello {{ value | convertUpperCase }}</h1>
     <input type="text" v-bind:value="inputValue" v-on:input="handleInput($event)" />
     <button v-on:click="handleClick()" v-bind:disabled="isDisabled">button</button>
   </div>
@@ -60,6 +60,14 @@ export default {
       console.log(`watch: ${newValue}, ${oldValue}`);
     },
   },
+
+  /** テンプレートの出力の際に任意のフォーマットに変換するためのメソッド */
+  filters: {
+    convertUpperCase(value) {
+      if (!value) return;
+      return value.toUpperCase();
+    }
+  }
 };
 </script>
 
