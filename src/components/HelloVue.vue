@@ -24,24 +24,31 @@ export default {
 
   /**
    * lifycycle hooks
-   * mountedはコンポーネントがマウントされる直前に呼ばれる
-   * */
+   * mountedはコンポーネントがマウントされる直前に呼び出される
+   */
   mounted() {
     console.log('mounted');
   },
 
-  /** いわゆるGet/Setアクセサ */
+  /**
+   * いわゆるGet/Setアクセサを定義
+   */
   computed: {
+    /** ボタンが押せるかどうか取得する */
     isDisabled() {
       return this.inputValue === '';
     },
   },
 
-  /** コンポーネント内で使用するメソッド */
+  /**
+   * コンポーネント内で使用するメソッドを定義
+   */
   methods: {
+    /** テキストが入力された時に呼び出される */
     handleInput($event) {
       this.inputValue = $event.target.value;
     },
+    /** ボタンがクリックされた時に呼び出される */
     handleClick() {
       if (this.inputValue === '') {
         return;
@@ -54,15 +61,21 @@ export default {
     },
   },
 
-  /** dataの更新を監視し、変更時に呼ばれるメソッド */
+  /*
+   * dataの更新を監視し、変更時に呼び出されるメソッドを定義
+   */
   watch: {
+    /** data.valueの値が変更された時に呼び出される */
     value(newValue, oldValue) {
       console.log(`watch: ${newValue}, ${oldValue}`);
     },
   },
 
-  /** テンプレートの出力の際に任意のフォーマットに変換するためのメソッド */
+  /**
+   * テンプレートの出力の際に任意のフォーマットに変換するためのメソッド
+   */
   filters: {
+    /** 渡された値をアッパーケースに変換する */
     convertUpperCase(value) {
       if (!value) return;
       return value.toUpperCase();
