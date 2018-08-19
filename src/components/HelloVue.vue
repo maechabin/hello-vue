@@ -65,7 +65,10 @@ export default {
    * dataの更新を監視し、変更時に呼び出されるメソッドを定義
    */
   watch: {
-    /** data.valueの値が変更される度に呼び出される */
+    /**
+     * data.valueの値が変更される度に呼び出される
+     * 引数に、変更後と変更前の値が渡される
+     */
     value(newValue, oldValue) {
       console.log(`watch: ${newValue}, ${oldValue}`);
     },
